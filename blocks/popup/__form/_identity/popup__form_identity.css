@@ -1,0 +1,17 @@
+.popup__form_identity {
+  min-width: 358px;
+  min-height: 34px;
+  margin: 0 auto 49px;
+  border-bottom: 1px solid #00000033;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+@media screen and (max-width: 768px) {
+  .popup__form_identity {
+    min-width: 238px;
+    margin: 0 auto 45px;
+  }
+}
