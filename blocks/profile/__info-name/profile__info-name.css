@@ -1,4 +1,4 @@
-.profile__info_name {
+.profile__info-name {
   margin: 0;
   font-family: 'Inter';
   font-style: normal;
@@ -7,11 +7,11 @@
   line-height: 48px;
 }
 @media screen and (max-width: 960px) {
-  .profile__info_name {
+  .profile__info-name {
     text-align: center;
   }
 }@media screen and (max-width: 768px) {
-  .profile__info_name {
+  .profile__info-name {
     font-size: 27px;
     line-height: 33px;
   }

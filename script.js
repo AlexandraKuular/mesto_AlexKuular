@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let edit = document.querySelector('.profile__info_btn');
+  let edit = document.querySelector('.profile__info-btn');
   let popup = document.getElementById('popup');
   let btnClose = document.querySelector('.popup__btn-close');
   let popupForm = document.getElementById('popup__form');
-  let popupName = document.querySelector('.popup__form_fullname');
-  let popupIdentity = document.querySelector('.popup__form_identity');
-  let profileName = document.querySelector('.profile__info_name');
-  let profileIdentity = document.querySelector('.profile__info_identity');
+  let popupName = document.querySelector('.popup__form-fullname');
+  let popupIdentity = document.querySelector('.popup__form-identity');
+  let profileName = document.querySelector('.profile__info-name');
+  let profileIdentity = document.querySelector('.profile__info-identity');
 
   function showPopup() {
     popup.classList.add('popup_opened');
