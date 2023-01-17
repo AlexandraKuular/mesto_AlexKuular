@@ -5,6 +5,7 @@
   max-width: 32px;
   max-height: 32px;
   padding: 0;
+  cursor: pointer;
 }
 .popup__btn-close:hover {
   opacity: 0.6;

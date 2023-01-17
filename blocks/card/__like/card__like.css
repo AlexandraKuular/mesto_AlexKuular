@@ -1,5 +1,8 @@
 .card__like {
   padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 .card__like:hover {
   opacity: 0.5;

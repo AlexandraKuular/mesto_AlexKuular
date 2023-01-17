@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mesto</title>
     <link rel="stylesheet" href="./pages/index.css" />
-    <script src="./script.js"></script>
   </head>
   <body class="root">
     <div class="page">
@@ -19,89 +18,90 @@
           <div class="profile__info">
             <div class="profile__info-title">
               <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-              <button class="no-border">
+              <button class="profile__info-btnborder" type="button">
                 <img class="profile__info-btn" src="./images/EditButton.svg" alt="Кнопка редактирования" />
               </button>
             </div>
             <p class="profile__info-identity">Исследователь океана</p>
           </div>
           <button class="profile__button" type="button">
-            <img src="./images/AddButton.svg" alt="Кнопка добавления" />
+            <img class="profile__button-plus" src="./images/AddButton.svg" alt="Кнопка добавления" />
           </button>
         </section>
         <section class="cards">
-          <div class="card">
+          <article class="card">
             <img class="card__image" src="./images/tuva.JPG" alt="Тува" />
             <div class="card__title">
-              <p class="card__name">Тува</p>
-              <button class="card__like card__like_active no-border">
+              <h2 class="card__name">Тува</h2>
+              <button class="card__like" type="button">
                 <img src="./images/Vector.svg" alt="Кнопка лайк" />
               </button>
             </div>
-          </div>
-          <div class="card">
+          </article>
+          <article class="card">
             <img class="card__image" src="./images/zelenogradsk.JPG" alt="Пляж в Зеленоградске" />
             <div class="card__title">
-              <p class="card__name">Зеленоградск</p>
-              <button class="card__like card__like_active no-border">
+              <h2 class="card__name">Зеленоградск</h2>
+              <button class="card__like" type="button">
                 <img src="./images/Vector.svg" alt="Кнопка лайк" />
               </button>
             </div>
-          </div>
-          <div class="card">
+          </article>
+          <article class="card">
             <img class="card__image" src="./images/murmansk.jpg" alt="Северное сияние в Мурманске" />
             <div class="card__title">
-              <p class="card__name">Мурманск</p>
-              <button class="card__like card__like_active no-border">
+              <h2 class="card__name">Мурманск</h2>
+              <button class="card__like" type="button">
                 <img src="./images/Vector.svg" alt="Кнопка лайк" />
               </button>
             </div>
-          </div>
-          <div class="card">
+          </article>
+          <article class="card">
             <img class="card__image" src="./images/georgia.jpg" alt="Море Грузии" />
             <div class="card__title">
-              <p class="card__name">Грузия</p>
-              <button class="card__like card__like_active no-border">
+              <h2 class="card__name">Грузия</h2>
+              <button class="card__like" type="button">
                 <img src="./images/Vector.svg" alt="Кнопка лайк" />
               </button>
             </div>
-          </div>
-          <div class="card">
+          </article>
+          <article class="card">
             <img class="card__image" src="./images/bashkortostan.jpg" alt="Башкортостан" />
             <div class="card__title">
-              <p class="card__name">Башкортостан</p>
-              <button class="card__like card__like_active no-border">
+              <h2 class="card__name">Башкортостан</h2>
+              <button class="card__like" type="button">
                 <img src="./images/Vector.svg" alt="Кнопка лайк" />
               </button>
             </div>
-          </div>
-          <div class="card">
+          </article>
+          <article class="card">
             <img class="card__image" src="./images/pafos.JPG" alt="Море в Пафосе" />
             <div class="card__title">
-              <p class="card__name">Пафос</p>
-              <button class="card__like card__like_active no-border">
+              <h2 class="card__name">Пафос</h2>
+              <button class="card__like" type="button">
                 <img src="./images/Vector.svg" alt="Кнопка лайк" />
               </button>
             </div>
-          </div>
+          </article>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
     </div>
-    <section class="popup" id="popup">
+    <div class="popup" id="popup">
       <div class="popup__container">
-        <button class="no-border">
+        <button class="popup__btnborder" type="button">
           <img class="popup__btn-close" src="./images/CloseIcon.svg" alt="Кнопка закрытия" />
         </button>
-        <form class="popup__form" id="popup__form">
+        <form class="popup__form" name="edit-profile" id="popup__form">
           <h2 class="popup__container-edit">Редактировать профиль</h2>
-          <input class="popup__form-fullname no-border" type="text" name="fullname" required>
-          <input class="popup__form-identity no-border" type="text" name="identity" required>
-          <button class="popup__btn-save no-border" type="submit">Сохранить</button>
+          <input class="popup__input popup__input_fullname" type="text" name="fullname" id="fullnameInput" required>
+          <input class="popup__input popup__input_identity" type="text" name="identity" id="identityInput" required>
+          <button class="popup__btn-save" type="submit">Сохранить</button>
         </form>
       </div>
-    </section>
+    </div>
+    <script src="./script/script.js"></script>
   </body>
 </html>  

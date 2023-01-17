@@ -7,6 +7,7 @@
   height: 50px;
   background: none;
   align-self: center;
+  cursor: pointer;
 }
 .profile__button:hover {
   opacity: 0.6;
@@ -14,6 +15,6 @@
 @media screen and (max-width: 960px) {
   .profile__button {
     min-width: 282px;
-    margin: 36px auto 0;
+    margin: 30px auto 0;
   }
 }

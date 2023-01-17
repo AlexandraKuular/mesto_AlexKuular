@@ -1,6 +1,7 @@
 .profile__info-btn {
   max-width: 24px;
   max-height: 24px;
+  cursor: pointer;
 }
 .profile__info-btn:hover {
   opacity: 0.6;
