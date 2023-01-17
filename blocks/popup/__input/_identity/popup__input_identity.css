@@ -1,8 +1,0 @@
-.popup__input_identity {
-  margin: 0 auto 49px;
-}
-@media screen and (max-width: 768px) {
-  .popup__input_identity {
-    margin: 0 auto 45px;
-  }
-}
