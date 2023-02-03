@@ -5,7 +5,10 @@
   left: 0;
   min-width: 100%;
   min-height: 100%;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .5s, opacity .5s ease-in-out;
   align-items: center;
   justify-content: center;
 }

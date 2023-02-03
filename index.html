@@ -27,62 +27,7 @@
             <img class="profile__button-plus" src="./images/AddButton.svg" alt="Кнопка добавления" />
           </button>
         </section>
-        <section class="cards">
-          <article class="card">
-            <img class="card__image" src="./images/tuva.JPG" alt="Тува" />
-            <div class="card__title">
-              <h2 class="card__name">Тува</h2>
-              <button class="card__like" type="button">
-                <img src="./images/Vector.svg" alt="Кнопка лайк" />
-              </button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/zelenogradsk.JPG" alt="Пляж в Зеленоградске" />
-            <div class="card__title">
-              <h2 class="card__name">Зеленоградск</h2>
-              <button class="card__like" type="button">
-                <img src="./images/Vector.svg" alt="Кнопка лайк" />
-              </button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/murmansk.jpg" alt="Северное сияние в Мурманске" />
-            <div class="card__title">
-              <h2 class="card__name">Мурманск</h2>
-              <button class="card__like" type="button">
-                <img src="./images/Vector.svg" alt="Кнопка лайк" />
-              </button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/georgia.jpg" alt="Море Грузии" />
-            <div class="card__title">
-              <h2 class="card__name">Грузия</h2>
-              <button class="card__like" type="button">
-                <img src="./images/Vector.svg" alt="Кнопка лайк" />
-              </button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/bashkortostan.jpg" alt="Башкортостан" />
-            <div class="card__title">
-              <h2 class="card__name">Башкортостан</h2>
-              <button class="card__like" type="button">
-                <img src="./images/Vector.svg" alt="Кнопка лайк" />
-              </button>
-            </div>
-          </article>
-          <article class="card">
-            <img class="card__image" src="./images/pafos.JPG" alt="Море в Пафосе" />
-            <div class="card__title">
-              <h2 class="card__name">Пафос</h2>
-              <button class="card__like" type="button">
-                <img src="./images/Vector.svg" alt="Кнопка лайк" />
-              </button>
-            </div>
-          </article>
-        </section>
+        <section class="cards" id="cards"></section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
@@ -99,6 +44,28 @@
           <input class="popup__input" type="text" name="identity" id="identityInput" required>
           <button class="popup__btn-save" type="submit">Сохранить</button>
         </form>
+      </div>
+    </div>
+    <div class="popup" id="popupAdd">
+      <div class="popup__container">
+        <button class="popup__btnborder" type="button">
+          <img class="popup__btn-close" id="popup__btn-closeAdd" src="./images/CloseIcon.svg" alt="Кнопка закрытия" />
+        </button>
+        <form class="popup__form" name="edit-profile" id="popup__formAdd">
+          <h2 class="popup__container-edit">Новое место</h2>
+          <input class="popup__input" type="text" name="fullname" id="cardNameInput" required autocomplete="off" placeholder="Название">
+          <input class="popup__input" type="text" name="identity" id="cardLinkInput" required autocomplete="off" placeholder="Ссылка на картинку">
+          <button class="popup__btn-save" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup" id="popupImage">
+      <div class="popup__containerImage">
+        <button class="popup__btnborder" type="button">
+          <img class="popup__btn-close" id="popup__btn-closeImage" src="./images/CloseIcon.svg" alt="Кнопка закрытия" />
+        </button>
+        <img class="popup__image" id="imageSrc" src="" alt="" />
+        <h2 class="popup__image-name" id="imageName"></h2>
       </div>
     </div>
     <script src="./script/script.js"></script>
