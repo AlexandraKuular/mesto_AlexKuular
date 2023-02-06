@@ -1,25 +1,24 @@
 const btnEdit = document.querySelector('.profile__info-btn');
-const popup = document.getElementById('popup');
-const btnClose = document.querySelector('.popup__btn-close');
-const popupForm = document.getElementById('popup__form');
-const popupName = document.getElementById('fullnameInput');
-const popupIdentity = document.getElementById('identityInput');
+const popup = document.querySelector('#popup-profile');
+const btnClose = document.querySelector('#popup__btn-closeProfile');
+const popupForm = document.querySelector('#popup__form');
+const popupName = document.querySelector('#fullnameInput');
+const popupIdentity = document.querySelector('#identityInput');
 const profileName = document.querySelector('.profile__info-name');
 const profileIdentity = document.querySelector('.profile__info-identity');
 const btnAdd = document.querySelector('.profile__button');
-const popupAdd = document.getElementById('popupAdd');
-const popupFormAdd = document.getElementById('popup__formAdd');
-const btnCloseAdd = document.getElementById('popup__btn-closeAdd');
+const popupAdd = document.querySelector('#popupAdd');
+const popupFormAdd = document.querySelector('#popup__formAdd');
+const btnCloseAdd = document.querySelector('#popup__btn-closeAdd');
 
-const cardsContainer = document.getElementById('cards');
-const popupAddCardName = document.getElementById('cardNameInput');
-const popupAddCardLink = document.getElementById('cardLinkInput');
+const cardsContainer = document.querySelector('#cards');
+const popupAddCardName = document.querySelector('#cardNameInput');
+const popupAddCardLink = document.querySelector('#cardLinkInput');
 
-const popupImage = document.getElementById('popupImage');
-const imageSrc = document.getElementById('imageSrc');
-const imageName = document.getElementById('imageName');
-const btnCloseImage = document.getElementById('popup__btn-closeImage');
-
+const popupImage = document.querySelector('#popupImage');
+const imageSrc = document.querySelector('#imageSrc');
+const imageName = document.querySelector('#imageName');
+const btnCloseImage = document.querySelector('#popup__btn-closeImage');
 
 const initialCards = [
   {
@@ -50,25 +49,16 @@ const initialCards = [
 
 //создание карточки
 const createCard = ({name, link}) => {
-  const card = `
-    <button class="card__delete" type="button">
-      <img class="card__trash" src="./images/Trash.svg" alt="Кнопка удаления" />
-    </button>
-    <img class="card__image" src="${link}" alt="${name}" />
-    <div class="card__title">
-      <h2 class="card__name">${name}</h2>
-      <button class="card__like" type="button">
-        <img src="./images/Vector.svg" alt="Кнопка лайк" />
-      </button>
-    </div>
-  `;
-  const element = document.createElement('article');
-  element.className = 'card';
-  element.innerHTML = card;
+  const card = document.querySelector('#cardTemplate');
+  const element = card.cloneNode(true).content;
+  const cardImage = element.querySelector('.card__image');
+  const cardName = element.querySelector('.card__name');
+  cardImage.src = link;
+  cardName.innerText = name;
 
   const btnDelete = element.querySelector('.card__delete');
   btnDelete.addEventListener('click', () => {
-    element.remove();
+    btnDelete.closest('.card').remove();
   });
 
   const btnLike = element.querySelector('.card__like');
@@ -78,7 +68,6 @@ const createCard = ({name, link}) => {
     } else btnLike.classList.add('card__like_active')
     });
 
-  const cardImage = element.querySelector('.card__image');
   cardImage.addEventListener('click', () => {
     openImage(name, link);
   });
