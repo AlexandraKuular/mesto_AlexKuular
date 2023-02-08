@@ -84,7 +84,7 @@ function openImage (name, link) {
   imageSrc.src = link;
   imageSrc.alt = name;
   imageName.innerText = name;
-  popupImage.classList.add('popup_opened');
+  openPopup(popupImage);
 }
 
 //создаем карточки с данными из массива
