@@ -16,7 +16,7 @@ function validationForm (form, config) {
   });
   addInputListeners(form, config);
   toggleButton(form, config);
-}
+};
 
 function handleFormInput(event, config) {
   const input = event.target;
@@ -31,7 +31,7 @@ function handleFormInput(event, config) {
     input.classList.add(config.inputErrorClass);
     errorElement.classList.add(config.errorClass);
     errorElement.textContent = input.validationMessage;
-  }
+  };
 };
 
 function toggleButton(form, config) {
@@ -39,7 +39,7 @@ function toggleButton(form, config) {
   const isFormValid = form.checkValidity();
   button.disabled = !isFormValid;
   button.classList.toggle(config.inactiveButtonClass, !isFormValid);
-}
+};
 
 function addInputListeners(form, config) {
   const inputList = Array.from(form.querySelectorAll(config.inputSelector));
