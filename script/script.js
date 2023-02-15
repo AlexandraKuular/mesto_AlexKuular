@@ -135,6 +135,22 @@ function clearCardInputs() {
   popupAddCardLink.value = '';
 }
 
+//Закрытие попапа кликом на оверлей
+function closePopupOverlay(evt) {
+  const popupOpen = document.querySelector('.popup_opened');
+  if (evt.target === popupOpen) {
+    closePopup(popupOpen);
+  }
+}
+
+//Закрытие попапа нажатием на Esc
+function closePopupEsc(evt) {
+  const popupOpenEsc = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(popupOpenEsc);
+  }
+}
+
 btnEdit.addEventListener('click', showPopup);
 btnClose.addEventListener('click', () => {
   closePopup(profilePopup);
@@ -154,3 +170,5 @@ popupFormAdd.addEventListener("submit", handleFormSubmitAddCart);
 document.addEventListener("DOMContentLoaded", () => {
   renderCards(initialCards);
 });
+document.addEventListener('mousedown', closePopupOverlay);
+document.addEventListener('keydown', closePopupEsc);

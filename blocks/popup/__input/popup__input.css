@@ -12,6 +12,11 @@
   font-size: 14px;
   line-height: 17px;
 }
+
+.popup__input.popup__input_type_error {
+  border-color: #ff0000;
+}
+
 @media screen and (max-width: 768px) {
   .popup__input {
     min-width: 238px;
