@@ -16,6 +16,11 @@ function validationForm (form, config) {
   });
   addInputListeners(form, config);
   toggleButton(form, config);
+
+  form.addEventListener('reset', () => {
+    setTimeout(() => {
+      toggleButton(form, config), 0 });
+  });
 };
 
 function handleFormInput(event, config) {
@@ -56,5 +61,5 @@ enableValidation({
   submitButtonSelector: '.popup__btn-save',
   inactiveButtonClass: 'popup__btn-save_disabled',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'error'
+  errorClass: 'error__active'
 });

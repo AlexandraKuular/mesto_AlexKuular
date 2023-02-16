@@ -1,7 +1,7 @@
 .popup__input {
   min-width: 358px;
   min-height: 34px;
-  margin: 0 auto 22px;
+  margin: 0 auto;
   border: none;
   background: none;
   padding: 0;
@@ -12,7 +12,6 @@
   font-size: 14px;
   line-height: 17px;
 }
-
 .popup__input.popup__input_type_error {
   border-color: #ff0000;
 }

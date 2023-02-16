@@ -6,5 +6,11 @@
   line-height: 15px;
   color: #FF0000;
   display: block;
-  margin: -17px 0 13px 36px;
+  margin: 0 0 0 36px;
+  max-width: 358px;
+  min-height: 30px;
+  opacity: 0;
+}
+.error.error__active {
+  opacity: 1;
 }

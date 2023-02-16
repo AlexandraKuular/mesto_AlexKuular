@@ -19,6 +19,7 @@ const popupImage = document.querySelector('#popupImage');
 const imageSrc = document.querySelector('#imageSrc');
 const imageName = document.querySelector('#imageName');
 const btnCloseImage = document.querySelector('#popup__btn-closeImage');
+const closeButtons = document.querySelectorAll('.popup__btn-close');
 
 const initialCards = [
   {
@@ -94,15 +95,14 @@ function renderCards(cards) {
   });
 }
 
-//открытие попапа
 function openPopup(popup) {
-  popup.classList.add('popup_opened');
-}
-
-//закрытие попапа
+  popup.classList.add('popup_opened'); //открыли попап
+  document.addEventListener('keydown', closePopupEsc);
+};
 function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-}
+  popup.classList.remove('popup_opened'); //закрыли попап
+  document.removeEventListener('keydown', closePopupEsc); 
+};
 
 //открытие попапа profilePopup
 function showPopup() {
@@ -131,8 +131,7 @@ function handleFormSubmitAddCart (evt) {
 
 //очистка инпута
 function clearCardInputs() {
-  popupAddCardName.value = '';
-  popupAddCardLink.value = '';
+  popupFormAdd.reset();
 }
 
 //Закрытие попапа кликом на оверлей
@@ -145,30 +144,30 @@ function closePopupOverlay(evt) {
 
 //Закрытие попапа нажатием на Esc
 function closePopupEsc(evt) {
-  const popupOpenEsc = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
+    const popupOpenEsc = document.querySelector('.popup_opened');
     closePopup(popupOpenEsc);
   }
 }
 
 btnEdit.addEventListener('click', showPopup);
-btnClose.addEventListener('click', () => {
-  closePopup(profilePopup);
+
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
 });
+
 popupForm.addEventListener("submit", handleFormSubmit);
+
 btnAdd.addEventListener('click', () => {
   openPopup(popupAdd);
-});
-btnCloseAdd.addEventListener('click', () => {
-  closePopup(popupAdd);
   clearCardInputs();
 });
-btnCloseImage.addEventListener('click', () => {
-  closePopup(popupImage);
-});
+
 popupFormAdd.addEventListener("submit", handleFormSubmitAddCart);
+
 document.addEventListener("DOMContentLoaded", () => {
   renderCards(initialCards);
 });
+
 document.addEventListener('mousedown', closePopupOverlay);
-document.addEventListener('keydown', closePopupEsc);
