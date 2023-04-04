@@ -2,6 +2,7 @@ export default class FormValidator {
   constructor(selectorsValidation, formElement) {
     this._selectorsValidation = selectorsValidation;
     this._form = formElement;
+    this._button = this._form.querySelector(this._selectorsValidation.submitButtonSelector);
   }
 
   _handleFormInput(event) {
@@ -21,7 +22,6 @@ export default class FormValidator {
   };
 
   _toggleButton() {
-    this._button = this._form.querySelector(this._selectorsValidation.submitButtonSelector);
     this._isFormValid = this._form.checkValidity();
 
     this._button.disabled = !this._isFormValid;
