@@ -86,8 +86,8 @@ function openImage (name, link) {
 }
 
 function createCard(name, link, selectors) {
-  const card = new Card(name, link, selectors);
-  const element = card.geneterateCard(openImage);
+  const card = new Card(name, link, selectors, openImage);
+  const element = card.geneterateCard();
 
   return element;
 }
@@ -103,7 +103,6 @@ function renderCards(cards) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-  popup.addEventListener('mousedown', closePopupOverlay);
 };
 
 function closePopup(popup) {
@@ -173,6 +172,10 @@ btnAdd.addEventListener('click', () => {
 });
 
 popupFormAdd.addEventListener("submit", handleFormSubmitAddCart);
+
+profilePopup.addEventListener('mousedown', closePopupOverlay);
+popupAdd.addEventListener('mousedown', closePopupOverlay);
+popupImage.addEventListener('mousedown', closePopupOverlay);
 
 document.addEventListener("DOMContentLoaded", () => {
   renderCards(initialCards);

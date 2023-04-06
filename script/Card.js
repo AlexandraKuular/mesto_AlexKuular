@@ -1,10 +1,18 @@
 export default class Card {
-  constructor(name, imgLink, selectorsCard) {
+  constructor(name, imgLink, selectorsCard, onOpenImage) {
     this.name = name;
     this.imgLink = imgLink;
     this._templateSelector = selectorsCard.cardTemplateSelector;
     this._cardImageSelector = selectorsCard.cardImageSelector;
     this._cardNameSelector = selectorsCard.cardNameSelector;
+
+    this.cardTemplate = this._getTemplate();
+    this.cardImage = this.cardTemplate.querySelector('.card__image');
+
+    this.cardImage.addEventListener('click', () => {
+      onOpenImage(this.name, this.imgLink);
+    });
+    
   }
 
   _getTemplate() {
@@ -14,31 +22,29 @@ export default class Card {
     return element;
   }
 
-  geneterateCard(onOpenImage) {
-    const cardTemplate = this._getTemplate();
+  geneterateCard() {
 
-    cardTemplate.querySelector(this._cardImageSelector).src = this.imgLink;
-    cardTemplate.querySelector(this._cardImageSelector).alt = this.name;
-    cardTemplate.querySelector(this._cardNameSelector).innerText = this.name;
+    this._btnDelete = this.cardTemplate.querySelector('.card__delete');
+    this._btnLike = this.cardTemplate.querySelector('.card__like');
 
-    const btnDelete = cardTemplate.querySelector('.card__delete');
-    btnDelete.addEventListener('click', () => {
-      btnDelete.closest('.card').remove();
-    });
+    this.cardTemplate.querySelector(this._cardImageSelector).src = this.imgLink;
+    this.cardTemplate.querySelector(this._cardImageSelector).alt = this.name;
+    this.cardTemplate.querySelector(this._cardNameSelector).innerText = this.name;
 
-    const btnLike = cardTemplate.querySelector('.card__like');
-    btnLike.addEventListener('click', () => {
-      if (btnLike.className.includes('card__like_active')) {
-        btnLike.classList.remove('card__like_active')
-      } else btnLike.classList.add('card__like_active')
-      });
+    this._addEventListener();
 
-    const cardImage = cardTemplate.querySelector('.card__image');
+    return this.cardTemplate;
+  }
 
-    cardImage.addEventListener('click', () => {
-      onOpenImage(this.name, this.imgLink);
-    });
+  _likeCard() {
+    this._btnLike.classList.toggle('card__like_active');
+  }
+  _deleteCard() {
+    this._btnDelete.closest('.card').remove();
+  }
 
-    return cardTemplate;
+  _addEventListener() {
+    this._btnLike.addEventListener('click', () => this._likeCard());
+    this._btnDelete.addEventListener('click', () => this._deleteCard());
   }
 }
