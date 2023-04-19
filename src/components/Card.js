@@ -1,18 +1,13 @@
 export default class Card {
-  constructor(name, imgLink, selectorsCard, onOpenImage) {
+  constructor(name, imgLink, selectorsCard, handleCardClick) {
     this.name = name;
     this.imgLink = imgLink;
     this._templateSelector = selectorsCard.cardTemplateSelector;
     this._cardImageSelector = selectorsCard.cardImageSelector;
     this._cardNameSelector = selectorsCard.cardNameSelector;
-
     this.cardTemplate = this._getTemplate();
-    this.cardImage = this.cardTemplate.querySelector('.card__image');
-
-    this.cardImage.addEventListener('click', () => {
-      onOpenImage(this.name, this.imgLink);
-    });
-    
+    this._cardImage = this.cardTemplate.querySelector('.card__image');
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -23,7 +18,6 @@ export default class Card {
   }
 
   geneterateCard() {
-
     this._btnDelete = this.cardTemplate.querySelector('.card__delete');
     this._btnLike = this.cardTemplate.querySelector('.card__like');
 
@@ -46,5 +40,8 @@ export default class Card {
   _addEventListener() {
     this._btnLike.addEventListener('click', () => this._likeCard());
     this._btnDelete.addEventListener('click', () => this._deleteCard());
+    this._cardImage.addEventListener('click', () => {
+      this._handleCardClick(this.name, this.imgLink);
+    });
   }
 }

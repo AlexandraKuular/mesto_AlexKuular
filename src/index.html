@@ -4,40 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mesto</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="root">
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="Логотип" />
+        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип" />
       </header>
       <main class="content">
         <section class="profile">
-          <img class="profile__avatar" src="./images/image.jpg" alt="Аватар" />
+          <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар" />
           <div class="profile__info">
             <div class="profile__info-title">
               <h1 class="profile__info-name">Жак-Ив Кусто</h1>
               <button class="profile__info-btnborder" type="button">
-                <img class="profile__info-btn" src="./images/EditButton.svg" alt="Кнопка редактирования" />
+                <img class="profile__info-btn" src="<%=require('./images/EditButton.svg')%>" alt="Кнопка редактирования" />
               </button>
             </div>
             <p class="profile__info-identity">Исследователь океана</p>
           </div>
           <button class="profile__button" type="button">
-            <img class="profile__button-plus" src="./images/AddButton.svg" alt="Кнопка добавления" />
+            <img class="profile__button-plus" src="<%=require('./images/AddButton.svg')%>" alt="Кнопка добавления" />
           </button>
         </section>
         <section class="cards" id="cards">
           <template id="cardTemplate">
             <article class="card">
               <button class="card__delete" type="button">
-                <img class="card__trash" src="./images/Trash.svg" alt="Кнопка удаления" />
+                <img class="card__trash" src="<%=require('./images/Trash.svg')%>" alt="Кнопка удаления" />
               </button>
               <img class="card__image" src="#" alt="#" />
               <div class="card__title">
                 <h2 class="card__name"></h2>
                 <button class="card__like" type="button">
-                  <img src="./images/Vector.svg" alt="Кнопка лайк" />
+                  <img src="<%=require('./images/Vector.svg')%>" alt="Кнопка лайк" />
                 </button>
               </div>
             </article>
@@ -51,7 +50,7 @@
     <div class="popup" id="popup-profile">
       <div class="popup__container">
         <button class="popup__btnborder" type="button">
-          <img class="popup__btn-close" id="popup__btn-closeProfile" src="./images/CloseIcon.svg" alt="Кнопка закрытия" />
+          <img class="popup__btn-close" id="popup__btn-closeProfile" src="<%=require('./images/CloseIcon.svg')%>" alt="Кнопка закрытия" />
         </button>
         <form class="popup__form" name="edit-profile" id="popup__form">
           <h2 class="popup__container-edit">Редактировать профиль</h2>
@@ -82,13 +81,14 @@
     <div class="popup" id="popupAdd">
       <div class="popup__container">
         <button class="popup__btnborder" type="button">
-          <img class="popup__btn-close" id="popup__btn-closeAdd" src="./images/CloseIcon.svg" alt="Кнопка закрытия" />
+          <img class="popup__btn-close" id="popup__btn-closeAdd" src="<%=require('./images/CloseIcon.svg')%>" alt="Кнопка закрытия" />
         </button>
         <form class="popup__form" name="edit-profile" id="popup__formAdd" novalidate>
           <h2 class="popup__container-edit">Новое место</h2>
           <input
             class="popup__input"
             type="text"
+            name="imgName"
             id="cardNameInput"
             autocomplete="off"
             placeholder="Название"
@@ -100,6 +100,7 @@
           <input
             class="popup__input"
             type="url"
+            name="link"
             id="cardLinkInput"
             autocomplete="off"
             placeholder="Ссылка на картинку"
@@ -113,12 +114,11 @@
     <div class="popup" id="popupImage">
       <div class="popup__containerImage">
         <button class="popup__btnborder" type="button">
-          <img class="popup__btn-close" id="popup__btn-closeImage" src="./images/CloseIcon.svg" alt="Кнопка закрытия" />
+          <img class="popup__btn-close" id="popup__btn-closeImage" src="<%=require('./images/CloseIcon.svg')%>" alt="Кнопка закрытия" />
         </button>
         <img class="popup__image" id="imageSrc" src="#" alt="#" />
         <h2 class="popup__image-name" id="imageName"></h2>
       </div>
     </div>
-    <script type="module" src="./script/index.js"></script>
   </body>
 </html>
