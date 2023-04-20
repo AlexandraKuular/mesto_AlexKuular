@@ -105,12 +105,12 @@ const userInfo = new UserInfo(profileName, profileIdentity);
 userInfo.getUserInfo();
 
 const popupWithForm = new PopupWithForm(profilePopup, handleFormSubmit);
+popupWithForm.setEventListeners();
 btnEdit.addEventListener('click',() => {
   const { name, identity } = userInfo.getUserInfo();
   profileInputName.value = name;
   profileInputIdentity.value = identity;
   popupWithForm.open();
-  popupWithForm.setEventListeners();
 });
 
 //изменение name и identity
