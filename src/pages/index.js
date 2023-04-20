@@ -12,6 +12,8 @@ const popupForm = document.querySelector('#popup__form');
 const profileName = document.querySelector('.profile__info-name');
 const profileIdentity = document.querySelector('.profile__info-identity');
 const btnAdd = document.querySelector('.profile__button');
+const profileInputName = document.querySelector('#fullnameInput');
+const profileInputIdentity = document.querySelector('#identityInput');
 
 const popupFormAdd = document.querySelector('#popup__formAdd');
 
@@ -73,9 +75,11 @@ validationProfile.enableValidation();
 const validationAdd = new FormValidator(enableValidation, popupFormAdd);
 validationAdd.enableValidation();
 
+const imagePopup = new PopupWithImage (popupImage);
+imagePopup.setEventListeners();
+
 //открывает попап с картинкой при клике на карточку
 const handleCardClick = (name, link) => {
-  const imagePopup = new PopupWithImage (popupImage);
   imagePopup.open(name, link);
 }
 
@@ -102,7 +106,11 @@ userInfo.getUserInfo();
 
 const popupWithForm = new PopupWithForm(profilePopup, handleFormSubmit);
 btnEdit.addEventListener('click',() => {
+  const { name, identity } = userInfo.getUserInfo();
+  profileInputName.value = name;
+  profileInputIdentity.value = identity;
   popupWithForm.open();
+  popupWithForm.setEventListeners();
 });
 
 //изменение name и identity
@@ -111,12 +119,13 @@ function handleFormSubmit (values) {
 }
 
 const popupWithFormAdd = new PopupWithForm(popupAdd, handleFormSubmitAddCard);
+popupWithFormAdd.setEventListeners();
 
 btnAdd.addEventListener('click', () => {
   popupWithFormAdd.open();
 });
+
 //добавление карочки из данных попапа
 function handleFormSubmitAddCard (values) {
-  userInfo.getUserInfo();
-  section._renderer({name: values.imgName, link: values.link});
+  section.addItem(createCard(values.imgName, values.link, selectors));
 }
