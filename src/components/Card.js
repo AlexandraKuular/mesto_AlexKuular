@@ -1,7 +1,11 @@
 export default class Card {
-  constructor(name, imgLink, selectorsCard, handleCardClick) {
+  constructor({ name, imgLink, _id, owner, likes }, userId, selectorsCard, handleCardClick) {
     this.name = name;
     this.imgLink = imgLink;
+    this._userId = userId;
+    this._idCard = _id;
+    this._idOwner = owner._id;
+    this._likesLenght = likes.lenght;
     this._templateSelector = selectorsCard.cardTemplateSelector;
     this._cardImageSelector = selectorsCard.cardImageSelector;
     this._cardNameSelector = selectorsCard.cardNameSelector;
@@ -20,10 +24,18 @@ export default class Card {
   geneterateCard() {
     this._btnDelete = this.cardTemplate.querySelector('.card__delete');
     this._btnLike = this.cardTemplate.querySelector('.card__like');
+    this._likeNumber = this.cardTemplate.querySelector('.card__like-number');
 
     this.cardTemplate.querySelector(this._cardImageSelector).src = this.imgLink;
     this.cardTemplate.querySelector(this._cardImageSelector).alt = this.name;
     this.cardTemplate.querySelector(this._cardNameSelector).innerText = this.name;
+    this._likeNumber.textContent = this._likesLenght;
+
+    //удаление урны с карточки
+    if (this._idOwner !== this._userId) {
+      this._btnDelete.remove();
+    }
+    
 
     this._addEventListener();
 

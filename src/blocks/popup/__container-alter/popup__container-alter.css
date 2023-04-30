@@ -1,0 +1,17 @@
+.popup__container-alter {
+  min-width: 358px;
+  margin: 15px auto 5px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+@media screen and (max-width: 768px) {
+  .popup__container-alter {
+    min-width: 238px;
+    margin: 8px auto 65px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
