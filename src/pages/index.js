@@ -7,50 +7,28 @@ import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 import UserInfo from '../components/UserInfo.js';
 import Api from '../components/Api.js';
 import './index.css';
-
-const btnEdit = document.querySelector('.profile__info-btn');
-
-const popupForm = document.querySelector('#popup__form');
-const profileName = document.querySelector('.profile__info-name');
-const profileIdentity = document.querySelector('.profile__info-identity');
-
-const profileAvatar = document.querySelector('.profile__avatarimg');
-
-const btnAdd = document.querySelector('.profile__button');
-const profileInputName = document.querySelector('#fullnameInput');
-const profileInputIdentity = document.querySelector('#identityInput');
-
-const popupFormAdd = document.querySelector('#popup__formAdd');
-const popupFormAvatar = document.querySelector('#popup__formAvatar');
-const popupDeleteCard = document.querySelector('#popupDeleteCard');
-const popupEditAvatar = document.querySelector('#popupEditAvatar');
-const cardsContainer = document.querySelector('#cards');
-
-const profilePopup = document.querySelector('#popup-profile');
-const popupAdd = document.querySelector('#popupAdd');
-const popupImage = document.querySelector('#popupImage');
-
-const btnEditAvatar = document.querySelector('.profile__avatar-btnedit');
-
-const cardTemplateSelector = '#cardTemplate';
-const cardImageSelector = '.card__image';
-const cardNameSelector = '.card__name';
-let userId;
-
-const selectors = {
-  cardTemplateSelector,
-  cardImageSelector,
-  cardNameSelector
-}
-
-const enableValidation = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__btn-save',
-  inactiveButtonClass: 'popup__btn-save_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'error__active'
-}
+import {
+  btnEdit,
+  popupForm,
+  profileName,
+  profileIdentity,
+  profileAvatar,
+  btnAdd,
+  profileInputName,
+  profileInputIdentity,
+  popupFormAdd,
+  popupFormAvatar,
+  popupDeleteCard,
+  popupEditAvatar,
+  cardsContainer,
+  profilePopup,
+  popupAdd,
+  popupImage,
+  btnEditAvatar,
+  userId,
+  selectors,
+  enableValidation,
+} from '../utils/constants.js';
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
