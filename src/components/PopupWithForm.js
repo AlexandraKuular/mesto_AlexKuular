@@ -34,17 +34,20 @@ export default class PopupWithForm extends Popup {
     this._popupForm.reset();
   }
 
+  open(inputValues) {
+    super.open();
+    if (inputValues) {
+      this._inputList.forEach((input) => {
+        input.value = inputValues[input.name] || "";
+      });
+    }
+  }
+
   loading(isLoading) {
     if (isLoading) {
       this._btnLoading.textContent = "Сохранение...";
     } else {
-      this._btnLoading.textContent = "Сохраненить";
+      this._btnLoading.textContent = "Сохранить";
     }
   }
-
-  /*
-  loading(save, text = "Сохранение...") {
-    this._btnLoading.disabled = save;
-    this._btnLoading.textContent = text;
-  } */
 }

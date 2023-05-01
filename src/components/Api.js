@@ -5,7 +5,7 @@ export default class Api {
   }
 
   //Проверка запроса
-  _checkRes() {
+  _checkRes(res) {
     if (res.ok) {
       return res.json();
     }
@@ -18,9 +18,7 @@ export default class Api {
       method: "GET",
       headers: this._headers,
     })
-      .then(res => {
-        return this._checkRes(res);
-      });
+      .then(this._checkRes);
   }
 
   //Запрос карточек с сервера
@@ -35,18 +33,16 @@ export default class Api {
   }
 
   //Редактирование профиля
-  setUserInfo({fullname, identity}) {
+  setUserInfo(userInfo) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: fullname,
-        about: identity
+        name: userInfo.fullname,
+        about: userInfo.identity
       })
     })
-      .then(res => {
-        return this._checkRes(res);
-      });
+    .then(this._checkRes);
   }
 
   //Добавление новой карточки
@@ -56,14 +52,24 @@ export default class Api {
       headers: this._headers,
       'Content-Type': 'application/json',
       body: JSON.stringify({
-        name: card.name,
-        link: card.link,
+        name: card.imgName,
+        link: card.link
       })
     })
-      .then(res => {
-        return this._checkRes(res);
-      });
+    .then(this._checkRes);
   }
+
+    //Обновление аватара
+    changeAvatar(avatar) {
+      return fetch(`${this._baseUrl}/users/me/avatar`, {
+        method: "PATCH",
+        headers: this._headers,
+        body: JSON.stringify({
+          avatar: avatar
+        })
+      })
+      .then(this._checkRes);
+    }
 
   //Удаление карточки
   deleteCard(id) {
@@ -71,9 +77,7 @@ export default class Api {
       method: "DELETE",
       headers: this._headers,
     })
-      .then(res => {
-        return this._checkRes(res);
-      });
+    .then(this._checkRes);
   }
 
   //Постановка лайка
@@ -82,9 +86,7 @@ export default class Api {
       method: "PUT",
       headers: this._headers,
     })
-      .then(res => {
-        return this._checkRes(res);
-      });
+    .then(this._checkRes);
   }
 
   //Снятие лайка
@@ -93,31 +95,13 @@ export default class Api {
       method: "DELETE",
       headers: this._headers,
     })
-      .then(res => {
-        return this._checkRes(res);
-      });
+    .then(this._checkRes);
   }
 
-  likeCard({cardId, isLiked}) {
+  likeCard({idCard, isLiked}) {
     if (isLiked) {
-      return this._deleteLike(cardId);
+      return this._deleteLike(idCard);
     }
-    return this._putLike(cardId);
-    //return isLiked ? this._deleteLike(cardId) : this._putLike(cardId);
-  }
-
-
-  //Обновление аватара
-  changeAvatar(avatar) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify({
-        avatar: avatar
-      })
-    })
-      .then(res => {
-        return this._checkRes(res);
-      });
+    return this._putLike(idCard);
   }
 }
