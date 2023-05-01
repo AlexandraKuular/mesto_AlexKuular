@@ -25,10 +25,11 @@ import {
   popupAdd,
   popupImage,
   btnEditAvatar,
-  userId,
   selectors,
   enableValidation,
 } from '../utils/constants.js';
+
+let userId;
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
@@ -88,7 +89,7 @@ const handleCardClick = (name, link) => {
 function handleLikeClick(card) {
   api
     .likeCard(card.elementInfo())
-    .then((res) => card.statusLike(res))
+    .then((res) => card.setStatusLike(res))
     .catch((err) => console.log(err));
 }
 

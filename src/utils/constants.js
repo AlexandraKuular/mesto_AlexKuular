@@ -25,7 +25,6 @@ export const btnEditAvatar = document.querySelector('.profile__avatar-btnedit');
 export const cardTemplateSelector = '#cardTemplate';
 export const cardImageSelector = '.card__image';
 export const cardNameSelector = '.card__name';
-export let userId;
 
 export const selectors = {
   cardTemplateSelector,

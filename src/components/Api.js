@@ -99,7 +99,7 @@ export default class Api {
   }
 
   likeCard({idCard, isLiked}) {
-    if (isLiked) {
+    if (isLiked()) {
       return this._deleteLike(idCard);
     }
     return this._putLike(idCard);
